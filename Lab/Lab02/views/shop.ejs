@@ -1,0 +1,205 @@
+<%- include('./layout/header.ejs') %>
+    <div class="container-fluid ">
+        <main class="container mb-5">
+            <div class=" d-flex  justify-content-start  row row-cols-3 ">
+
+                <% for (let product of products) { %>
+                    <article class="card product-item col text-center mt-2  " data-id="<%= product.id %>">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= product.title %>
+                            </h1>
+                        </header>
+                        <div class="card__image ">
+                            <img style="height: 150px; " src="<%= product.imageURL %>" alt="A Book">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= product.price %>
+                            </h2>
+                            <p class="product__description">
+                                <%= product.description %>
+                            </p>
+                        </div>
+
+                        <div class="card__actions mb-2" >
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal<%= product.id %>" data-id="<%= product.id %>">Detail product</button>
+                                <button type="button" class="btn btn-outline-success">Add to cart</button>
+                                <!-- Modal -->
+                                <div class="modal fade " id="exampleModal<%= product.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content " data-id="<%= product.id %>">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                   Sách "<%= product.title %>"
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <!-- Scrollable modal -->
+            
+                                            <div class="modal-dialog modal-dialog-scrollable ">
+                                                <div class="modal-body">
+                                                    <div class="container-fluid">
+                                                        <div class="row  position-relative">
+                                                            <img style="width:60%; height: 200px; margin: 0 auto;"
+                                                                src="<%= product.imageURL %>"
+                                                                class="card-img-top text-center " alt="...">
+                                                            <div class="col-md-4 ms-auto">
+                                                                <div class="row-md-4 ms-auto">
+                                                                    <div class="row-md-4 mb-2">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-secondary position-relative">PDF (3000$)
+                                                                            <span class="position-absolute top-20 start-200 translate-middle badge rounded-pill bg-danger">
+                                                                                -20%</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="row-md-4 mb-2">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-secondary">Hard (20$)</button>
+                                                                    </div>
+                                                                    <div class="row-md-4 mb-2">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-secondary">Papper (20$)</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p><%= product.description %></p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <h1><%= product.price %> $</h1>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-success">Add to cart</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                    </article>
+                <% } %>
+
+                
+                
+                <% if(newProducts.lenght !==0) { for (let newProduct of newProducts) { %>
+                    <article class="card product-item col text-center mt-2  " data-id="<%= newProduct.id %>">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                 <%= newProduct.title %>
+                            </h1>
+                        </header>
+                        <div class="card__image ">
+                            <img style="height: 150px; " src="<%= newProduct.imageURL %>" alt="A Book">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$<%= newProduct.price %>
+                            </h2>
+                            <p class="product__description">
+                                <%= newProduct.description %>
+                            </p>
+                        </div>
+                        <!-- <div class="card__actions mb-2">
+                            <button type="button" class="btn btn-outline-primary">Detail product...</button>
+                            <button type="button" class="btn btn-outline-success">Add to cart</button>
+                        </div> -->
+
+                        <div class="card__actions mb-2" >
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal<%= newProduct.id %>" data-id="<%= newProduct.id %>">Detail product</button>
+                            <button type="button" class="btn btn-outline-success">Add to cart</button>
+                            <!-- Modal -->
+                            <div class="modal fade " id="exampleModal<%= newProduct.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content " data-id="<%= newProduct.id %>">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                Sách "<%= newProduct.title %>"
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <!-- Scrollable modal -->
+        
+                                        <div class="modal-dialog modal-dialog-scrollable ">
+                                            <div class="modal-body">
+                                                <div class="container-fluid">
+                                                    <div class="row  position-relative">
+                                                        <img style="width:60%; height: 200px; margin: 0 auto;"
+                                                            src="<%= newProduct.imageURL %>"
+                                                            class="card-img-top text-center " alt="...">
+                                                        <div class="col-md-4 ms-auto">
+                                                            <div class="row-md-4 ms-auto">
+                                                                <div class="row-md-4 mb-2">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-secondary position-relative">PDF (3000$)
+                                                                        <span class="position-absolute top-20 start-200 translate-middle badge rounded-pill bg-danger">
+                                                                            -20%</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="row-md-4 mb-2">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-secondary">Hard (20$)</button>
+                                                                </div>
+                                                                <div class="row-md-4 mb-2">
+                                                                    <button type="button"
+                                                                        class="btn btn-outline-secondary">Papper (20$)</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p><%= newProduct.description %></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <h1><%= newProduct.price %> $</h1>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success">Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                <% } }%>
+
+            </div>
+        </main>
+    </div>
+    <!-- <div id="showProduct"> </div> -->
+    <!-- <script>
+        fetch('http://localhost:3000/testdb')
+            .then(res => res.json())
+            .then(res => {
+                viewShop(res);
+            })
+        const viewShop = (data) => { // ${d.imageURL}
+            let view = data.map(d =>
+                `
+                        <div>
+                            <h1>${d.ten_loai}</h1>   
+                        </div>
+                        `)
+            document.getElementById('showProduct').innerHTML = view.join('')
+        }
+    </script> -->
+    <%- include('./layout/footer.ejs') %>

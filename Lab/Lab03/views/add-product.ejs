@@ -1,0 +1,40 @@
+<%- include('./layout/header.ejs') %>
+    <div class="container mt-5" >
+        <form class="was-validated" enctype="multipart/form-data" action="/addnew" method="POST">
+            <div class="mb-3">
+                <button class="btn btn-success" type="submit" >Thêm sản phẩm</button>
+              </div>
+            <div class="mb-3">
+              <label for="validationTextarea" class="form-label">Tên sản phẩm</label>
+              <input class="form-control" id="addProductName" name="addProductName" placeholder="" required></input>
+              <div class="invalid-feedback">
+                Please enter a input.
+              </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Đơn giá</label>
+                <input class="form-control" id="addProductPrice" name="addProductPrice" placeholder="" required></input>
+                <div class="invalid-feedback">
+                  Please enter a input.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Mô tả</label>
+                <textarea class="form-control" id="addProductDescription" name="addProductDescription" placeholder="Required example textarea" required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a message in the textarea.
+                </div>
+            </div>
+          
+            <div class="mb-3">
+              <input type="text" class="form-control" aria-label="file example" required name="addProductImage" id="addProductImage" placeholder="Example link image: https://t3.ftcdn.net/360_F_598241246_sv0zluvgemUB7QYFvhpoIKKsK7vRcMCJ.jpg"></input>
+              <div class="invalid-feedback">Example invalid form file feedback</div>
+            </div>
+          
+            
+          </form>
+    </div>
+</body>
+<%- include('./layout/footer.ejs') %>

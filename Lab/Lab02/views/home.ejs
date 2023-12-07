@@ -1,0 +1,45 @@
+<%- include('./layout/header.ejs') %>
+    <!-- start of Integrated hero 1 -->
+
+    <div class="integrated_header_layout1 position-relative"
+        style="background: url('https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/blockui/M1156ed81c5b90ecd1444207a3fee10b81643693046484/assets/M4abe47ae34103846c42e5d8df26734ba1643693149801/bg-gradient.jpg');">
+
+        <div class="bs_hero-container min-vh-100">
+            <div class="container col-xxl-9 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/blockui/M1156ed81c5b90ecd1444207a3fee10b81643693046484/assets/Md3a0d85bd5eea2e85aceb51412eb05d51643693148547/hero-img.png"
+                            class="d-block mx-lg-auto img-fluid" alt="Hero-img" loading="lazy" width="600">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="bs_info_col text-white">
+                            <!-- <h1 class="display-2 fw-bold lh-1 mb-3">Heading 1</h1>
+                            <p class="lead fs-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor
+                                incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <div class="d-grid gap-2 d-flex align-items-center">
+                                <button type="button"
+                                    class="btn btn-outline-secondary btn-lg px-4 me-md-2 text-white">Button 1</button>
+                                <button type="button" class="btn btn-primary btn-lg px-4">Button 2</button>
+                            </div> -->
+                            <main align="center">
+                                <h1>Chào mừng ghé thăm website</h1>
+                                <% if (kindOfDay.includes('Chủ nhật') || kindOfDay.includes('Thứ bảy')) { %>
+                                    <h2>Hôm nay là cuối tuần</h2>
+                                    <% } else { %>
+                                        <h2>Hôm nay là <%= kindOfDay %>
+                                        </h2>
+                                        <% } %>
+                                            <!-- <h2>Hiện tại là: <%= kindOfDay.formattedTime %>
+                                            </h2> -->
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end of Integrated hero 1 -->
+    <%- include('./layout/footer.ejs') %>
